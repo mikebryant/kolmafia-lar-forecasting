@@ -6,6 +6,7 @@ import sys
 
 def sanitise_location(data, loc):
     loc = loc.lower()
+    subtype = ""
     loc = re.sub(" \(delay[\s\w]*\)", "", loc)
 
     match = re.match("bathole \((.*)\)", loc)
@@ -22,9 +23,18 @@ def sanitise_location(data, loc):
 
     if loc.lower() not in data and "the " + loc.lower() not in data:
         print("Unknown location: " + loc)
-        return ""
+        return ("", "")
 
-    return loc
+    return (loc, subtype)
+
+
+def sanitise_monster(data):
+    data = data.lower()
+    if data.endswith(" (good)"):
+        return (data.replace(" (good)", ""), "good")
+    if data.endswith(" (bad)"):
+        return (data.replace(" (bad)", ""), "bad")
+    return (data, "")
 
 def convert(fobj):
     csvreader = csv.reader(fobj)
@@ -42,21 +52,25 @@ def convert(fobj):
             for loc, enc in zip(locations, row[1:]):
                 if not enc or not loc:
                     continue
-                if enc.lower() in monsters:
+                monster_name, monster_subtype = sanitise_monster(enc)
+                if monster_name in monsters:
                     combat = "true"
                     encounter_name = ""
-                    monster_name = enc
+                    encounter_subtype = monster_subtype
                 else:
                     combat = "false"
                     encounter_name = enc
                     monster_name = "none"
+                    encounter_subtype = ""
                 yield (
-                    loc, # Location
+                    loc[0], # Location
+                    loc[1], # Zone special type
                     row[0], # Turn number
                     "0",# Delay
                     combat,
                     monster_name,
                     encounter_name,
+                    encounter_subtype, # Encounter subtype
                 )
 
 def main(argv):

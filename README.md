@@ -10,6 +10,8 @@ svn checkout https://github.com/mikebryant/kolmafia-lar-forecasting/branches/mas
 
 Then, run `lar-showall` to show the next encounter in each zone, if known.
 
+Or `lar-get-encounter Spooky forest`
+
 To update the script, run this command in the graphical CLI:
 
 ```
