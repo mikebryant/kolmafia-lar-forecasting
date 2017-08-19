@@ -1,0 +1,429 @@
+12 West Main
+1st Floor, Shiawase-Mitsuhama Building
+2nd Floor, Shiawase-Mitsuhama Building
+3rd Floor, Shiawase-Mitsuhama Building
+8-Bit Realm
+A Barroom Brawl
+A-Boo Peak
+A Crater Full of Space Beasts
+A Crowd of (Element) Adventurers
+A Crowd of (Stat) Adventurers
+A Deserted Stretch of I-911
+A Freezing Abyssal Portal
+A Grocery Bag
+A Kitchen Drawer
+A Massive Ziggurat
+A Maze of Sewer Tunnels
+A Mob of Zeppelin Protesters
+An Eldritch Fissure
+Anemone Mine
+Anemone Mine (Mining)
+Anger Man's Level
+An Illicit Bohemian Party
+An Incredibly Strange Place (Bad Trip)
+An Incredibly Strange Place (Great Trip)
+An Incredibly Strange Place (Mediocre Trip)
+An Octopus's Garden
+An Overgrown Shrine (Northeast)
+An Overgrown Shrine (Northwest)
+An Overgrown Shrine (Southeast)
+An Overgrown Shrine (Southwest)
+An Unsettling Abyssal Portal
+A Pile of Old Servers
+Art Class
+A Scorching Abyssal Portal
+A Skeleton Invasion!
+A Stinking Abyssal Portal
+A Terrifying Abyssal Portal
+Atomic Crimbo Toy Factory
+A Yawning Abyssal Portal
+Barf Mountain
+Barrrney's Barrr
+Battlefield (Cloaca Uniform)
+Battlefield (Dyspepsi Uniform)
+Battlefield (No Uniform)
+Belowdecks
+Burnbarrel Blvd.
+Camp Logging Camp
+Center Park After Dark
+Chemistry Class
+Chinatown Shops
+Chinatown Tenement
+Cobb's Knob Barracks
+Cobb's Knob Harem
+Cobb's Knob Kitchens
+Cobb's Knob Laboratory
+Cobb's Knob Menagerie, Level 1
+Cobb's Knob Menagerie, Level 2
+Cobb's Knob Menagerie, Level 3
+Cobb's Knob Treasury
+Coldest Adventurer Contest
+Convention Hall Lobby
+CRIMBCO cubicles
+CRIMBCO WC
+Crimborg Collective Factory
+Crimbo's Beard
+Crimbo's Boots
+Crimbo's Hat
+Crimbo's Jelly
+Crimbo's Reindeer
+Crimbo's Sack
+Crimbo Town Toy Factory (2005)
+Crimbo Town Toy Factory (2007)
+Crimbo Town Toy Factory (2009)
+Crimbo Town Toy Factory (2012)
+Domed City of Grimacia
+Domed City of Ronaldus
+Doubt Man's Level
+Dreadsylvanian Castle
+Dreadsylvanian Village
+Dreadsylvanian Woods
+Eager Rice Burrows
+Elf Alley
+El Vibrato Island
+Engineering
+Exposure Esplanade
+Fastest Adventurer Contest
+Fear Man's Level
+Fernswarthy's Basement
+Fightin' Fire
+Frat House
+Frat House In Disguise
+Friar Ceremony Location
+Fudge Mountain
+Galley
+Gingerbread Civic Center
+Gingerbread Industrial Zone
+Gingerbread Sewers
+Gingerbread Train Station
+Gingerbread Upscale Retail District
+Globe Theatre Backstage
+Globe Theatre Main Stage
+Goat Party
+Gotpork City Sewers
+Gotpork Clock, Inc.
+Gotpork Conservatory of Flowers
+Gotpork Foundry
+Gotpork Gardens Cemetery
+Gotpork Municipal Reservoir
+Grim Grimacite Site
+Guano Junction
+Gumdrop Forest
+Haert of the Cyrpt
+Hamburglaris Shield Generator
+Hell
+Hippy Camp
+Hippy Camp In Disguise
+Hobopolis Town Square
+Hottest Adventurer Contest
+Infernal Rackets Backstage
+Inside the Palindome
+Investigating a Plaintive Telegram
+Itznotyerzitz Mine
+Itznotyerzitz Mine (in Disguise)
+JokesterCo
+Kegger in the Woods
+Kokomo Resort
+KoL Con Clan Party House
+Lair of the Ninja Snowmen
+LavaCo&trade; Lamp Factory
+Lemon Party
+Lollipop Forest
+LOLmec's Lair
+Madness Bakery
+Madness Reef
+Market Square, 28 Days Later
+McMillicancuddy's Back 40
+McMillicancuddy's Barn
+McMillicancuddy's Bog
+McMillicancuddy's Family Plot
+McMillicancuddy's Farm
+McMillicancuddy's Granary
+McMillicancuddy's Other Back 40
+McMillicancuddy's Pond
+McMillicancuddy's Shady Thicket
+Medbay
+Mer-kin Colosseum
+Mer-kin Elementary School
+Mer-kin Gymnasium
+Mer-kin Library
+Mist-Shrouded Peak
+Moonshiners' Woods
+Morgue
+Mt. Molehill
+Navigation
+Near an Abandoned Refrigerator
+Neckback Crick
+Next to that Barrel with Something Burning in it
+Noob Cave
+Oil Peak
+Old Crimbo Town Toy Factory
+Out by that Rusted-Out Car
+Outside the Club
+Outskirts of Camp Logging Camp
+Over Where the Old Tires Are
+Pandamonium Slums
+Pirate Party
+Pirates of the Garbage Barges
+Porkham Asylum
+Portal to Terrible Parents
+Post-Quest Bugbear Pens
+Post-War Junkyard
+Professor Jacking's Huge-A-Ma-tron
+Professor Jacking's Small-O-Fier
+Pump Up Moxie
+Pump Up Muscle
+Pump Up Mysticality
+Regret Man's Level
+Rumpelstiltskin's Workshop
+Science Lab
+Seaside Megalopolis
+Shivering Timbers
+Shop Class
+Simple Tool-Making Cave
+Sinister Dodecahedron
+Sleaziest Adventurer Contest
+Sloppy Seconds Diner
+Smartest Adventurer Contest
+Smoothest Adventurer Contest
+Some Scattered Smoking Debris
+Sonar
+Sonofa Beach
+South of the Border
+Special Ops
+Spectral Pickle Factory
+Spookiest Adventurer Contest
+Spooky Fright Factory
+Stinkiest Adventurer Contest
+Strongest Adventurer Contest
+St. Sneaky Pete's Day Stupor
+Summoning Chamber
+Super Villain's Lair
+Swamp Beaver Territory
+Sweet-Ade Lake
+The Ancient Burial Ground
+The Ancient Hobo Burial Ground
+The Arid, Extra-Dry Desert
+The Arrrboretum
+The Barrel Full of Barrels
+The Bat Hole Entrance
+The Batrat and Ratbat Burrow
+The Battlefield (Frat Uniform)
+The Battlefield (Hippy Uniform)
+The Beanbat Chamber
+The Beehive
+The Black Forest
+The Boss Bat's Lair
+The Brinier Deepers
+The Briniest Deepests
+The Briny Deeps
+The Broodling Grounds
+The Bubblin' Caldera
+The Bugbear Pen
+The Caliginous Abyss
+The Cannon Museum
+The Castle in the Clouds in the Sky (Basement)
+The Castle in the Clouds in the Sky (Ground Floor)
+The Castle in the Clouds in the Sky (Top Floor)
+The Cave Before Time
+The City of Goooold
+The Clumsiness Grove
+The Copperhead Club
+The Coral Corral
+The Corpse Bog
+The Crashed U. F. O.
+The Crimbonium Mine
+The Crimbonium Mining Camp
+The Daily Dungeon
+The Dark and Spooky Swamp
+The Dark Elbow of the Woods
+The Dark Heart of the Woods
+The Dark Neck of the Woods
+The Deep Dark Jungle
+The Deep Machine Tunnels
+The Defiled Alcove
+The Defiled Cranny
+The Defiled Niche
+The Defiled Nook
+The Degrassi Knoll Bakery
+The Degrassi Knoll Garage
+The Degrassi Knoll Gym
+The Degrassi Knoll Restroom
+The Dire Warren
+The Dive Bar
+The Don's Crimbo Compound
+The Dungeons of Doom
+The Edge of the Swamp
+The Electric Lemonade Acid Parade
+The Enormous Greater-Than Sign
+The eXtreme Slope
+The F'c'le
+The Feeding Chamber
+The Filthworm Queen's Chamber
+The Fungal Nethers
+The Fun-Guy Mansion
+The "Fun" House
+The Glacier of Jerks
+The Goatlet
+The Gourd!
+The Haiku Dungeon
+The Hallowed Halls
+The Hatching Chamber
+The Haunted Ballroom
+The Haunted Bathroom
+The Haunted Bedroom
+The Haunted Billiards Room
+The Haunted Boiler Room
+The Haunted Conservatory
+The Haunted Gallery
+The Haunted Kitchen
+The Haunted Laboratory
+The Haunted Laundry Room
+The Haunted Library
+The Haunted Nursery
+The Haunted Pantry
+The Haunted Sorority House
+The Haunted Storage Room
+The Haunted Wine Cellar
+The Heap
+The Hedge Maze
+The Hidden Apartment Building
+The Hidden Bowling Alley
+The Hidden Hospital
+The Hidden Office Building
+The Hidden Park
+The Hidden Temple
+The Hippy Camp (Bombed Back to the Stone Age)
+The Hole in the Sky
+The Ice Caves
+The Ice Hole
+The Ice Hotel
+The Icy Peak
+The Icy Peak in The Recent Past
+The Inner Wolf Gym
+The Island Barracks
+The Jungle
+The Jungles of Ancient Loathing
+The Knob Shaft
+The Knob Shaft (Mining)
+The Landscaper's Lair
+The Laugh Floor
+The Limerick Dungeon
+The Maelstrom of Lovers
+The Mall of Loathing, 28 Days Later
+The Mansion of Dr. Weirdeaux
+The Marinara Trench
+The Mean Streets
+The Mer-Kin Outpost
+The Middle Chamber
+The Mine Foremens' Office
+The Mines
+The Mouldering Mansion
+The Naughty Sorceress' Chamber
+The Nemesis' Lair
+The Nightmare Meatrealm
+The Oasis
+The Obligatory Pirate's Cove
+The Old Gotpork Library
+The Old Landfill
+The Old Man's Bathtime Adventures
+The Orcish Frat House (Bombed Back to the Stone Age)
+The Outer Compound
+The Outskirts of Cobb's Knob
+The Overgrown Lot
+The Penultimate Fantasy Airship
+The Poker Room
+The Poop Deck
+The Post-Mall
+The Primordial Soup
+The Prince's Balcony
+The Prince's Canapes Table
+The Prince's Dance Floor
+The Prince's Kitchen
+The Prince's Lounge
+The Prince's Restroom
+The Purple Light District
+The Red Queen's Garden
+The Red Zeppelin
+The Road to the White Citadel
+The Rogue Windmill
+The Roman Forum
+The Roulette Tables
+The Rowdy Saloon
+The Royal Guard Chamber
+The Ruined Wizard Tower
+The Ruins of the Fully Automated Crimbo Factory
+The Secret Council Warehouse
+The Secret Government Laboratory
+The Shore, Inc. Travel Agency
+The Skate Park
+The Skeleton Store
+The Sleazy Back Alley
+The Slime Tube
+The SMOOCH Army HQ
+The Smut Orc Logging Camp
+The Snake Pit
+The Space Odyssey Discotheque
+The Spider Hole
+The Spirit World
+The Spooky Forest
+The Spooky Gravy Burrow
+The Spooky Old Abandoned Mine
+The Stately Pleasure Dome
+The Sunken Party Yacht
+The Temple Portico
+The Temple Ruins
+The Themthar Hills
+The Thinknerd Warehouse
+The Tower of Procedurally-Generated Skeletons
+The Toxic Teacups
+The Tunnel of L.O.V.E.
+The Typical Tavern Cellar
+The Unquiet Garves
+The Upper Chamber
+The Valley of Rof L'm Fao
+The Velvet / Gold Mine
+The VERY Unquiet Garves
+The Weird Swamp Village
+The Wildlife Sanctuarrrrrgh
+The Wreck of the Edgar Fitzsimmons
+The X-32-F Combat Training Snowman
+Throne Room
+Through the Spacegate
+Thugnderdome
+Tower Level 1
+Tower Level 2
+Tower Level 3
+Tower Level 5
+Tower Ruins
+Triad Factory
+Trick-or-Treating
+Trivial Pursuits, LLC
+Twin Peak
+Uncle Gator's Country Fun-Time Liquid Waste Sluice
+Unleash Your Inner Wolf
+Vanya's Castle Chapel
+Vanya's Castle Foyer
+Video Game Level 1
+Video Game Level 2
+Video Game Level 3
+VYKEA
+WarBear Fortress (First Level)
+WarBear Fortress (Second Level)
+WarBear Fortress (Third Level)
+Warehouse Row
+Wartime Frat House
+Wartime Frat House (Hippy Disguise)
+Wartime Hippy Camp
+Wartime Hippy Camp (Frat Disguise)
+Waste Processing
+Whitey's Grove
+Wrong Side of the Tracks, 28 Days Later
+Ye Olde Medievale Villagee
+Yomama's Throne
+Your Bung Chakra
+Your Guts Chakra
+Your Hat Chakra
+Your Liver Chakra
+Your Nipple Chakra
+Your Nose Chakra
