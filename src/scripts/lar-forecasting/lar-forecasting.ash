@@ -64,7 +64,7 @@ lar_encounter lar_get_encounter(location loc, int turn) {
 }
 
 lar_encounter lar_get_encounter(location loc) {
-  return lar_get_encounter(loc, "", my_turncount(), loc.turns_spent);
+  return lar_get_encounter(loc, "", my_turncount() + 1, loc.turns_spent);
 }
 
 boolean lar_known_encounter(location loc) {
