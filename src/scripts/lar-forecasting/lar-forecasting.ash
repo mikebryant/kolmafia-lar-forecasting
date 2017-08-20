@@ -1,85 +1,150 @@
 script "lar-forecasting.ash";
 notify "LeaChim";
 
-import <zlib.ash>
-
-boolean use_map_manager = true;
-
-record lar_encounter {
-  boolean combat; // True for combat, False for noncombat
-  monster combat_monster; // If .combat, the monster we expect
-  string noncombat_name; // If !.combat, the name of the NC encounter
-  string encounter_subtype; // Optionally the encounter subtype, e.g. gremlins good/bad
+record lar_roll {
+  int minimum;
+  int maximum;
 };
 
-//record lar_encounter_delay {
-//  int required_delay; // Required turns spent in the zone to see this encounter
-//  lar_encounter encounter; // The actual encounter
-//};
-
 static {
-  // Index by:
-  // location - where the encounter is
-  // zone_special - Some special subparameter, e.g. battlefield as hippy or frat
-  // current turn
-  // required delay - Required turns spent in the zone to see this encounter
-  lar_encounter [location, string, int, int] lar_encounter_data;
-  lar_encounter lar_unknown_encounter;
-  lar_unknown_encounter.combat = false;
-  lar_unknown_encounter.noncombat_name = "unknown";
+  // lar_cnc_rolls[turn]
+  lar_roll [int] lar_cnc_rolls;
+
+  // lar_monster_rolls[turn][retry]
+  lar_roll [int, int] lar_monster_rolls;
+
+  // lar_monster_orders[location][0]
+  monster [location][int] lar_monster_orders;
+
+  // lar_combat_percentags[location]
+  int [location] lar_combat_percentages;
 }
 
 void lar_load_data() {
-  clear(lar_encounter_data);
-  if (use_map_manager) {
-    load_current_map("lar_encounter_data_v1", lar_encounter_data);
-  } else {
-    file_to_map("lar_encounter_data_v1.txt", lar_encounter_data);
-  }
+  file_to_map("lar_cnc_rolls.txt", lar_cnc_rolls);
+  file_to_map("lar_monster_rolls.txt", lar_monster_rolls);
+  file_to_map("lar_monster_orders.txt", lar_monster_orders);
+  file_to_map("lar_combat_percentages.txt", lar_combat_percentages);
 }
 
 // Auto load data
+static {
+  lar_load_data();
+}
 lar_load_data();
 
-lar_encounter lar_get_encounter(location loc, string zone_special, int turn, int turns_spent) {
-  lar_encounter ret = lar_unknown_encounter;
-  int checked_delay = -1;
+boolean lar_encounter_is_combat_with_roll(int roll, location loc) {
+  int cpc = lar_combat_percentages[loc];
+  return (roll > cpc);
+}
 
-  foreach required_delay in lar_encounter_data[loc, zone_special, turn] {
-    if (turns_spent >= required_delay && required_delay > checked_delay) {
-      ret = lar_encounter_data[loc, zone_special, turn, required_delay];
-      checked_delay = required_delay;
+boolean lar_encounter_is_combat(location loc, int turn) {
+  lar_roll roll = lar_cnc_rolls[turn];
+  return lar_encounter_is_combat_with_roll((roll.minimum + roll.maximum) / 2, loc);
+}
+
+boolean lar_encounter_is_combat(location loc) {
+  return lar_encounter_is_combat(loc, my_turncount() + 1);
+}
+
+boolean lar_encounter_known_is_combat(boolean guess, location loc, int turn) {
+  if (!(lar_combat_percentages contains loc)) {
+    return false;
+  }
+  if (!(lar_cnc_rolls contains turn)) {
+    return false;
+  }
+  if (guess) {
+    return true;
+  }
+  lar_roll roll = lar_cnc_rolls[turn];
+  if (lar_encounter_is_combat_with_roll(roll.minimum, loc) == lar_encounter_is_combat_with_roll(roll.maximum, loc)) {
+    // The whole range agrees, so we're not guessing
+    return true;
+  }
+  return false;
+}
+
+boolean lar_encounter_known_is_combat(boolean guess, location loc) {
+  return lar_encounter_known_is_combat(guess, loc, my_turncount() + 1);
+}
+
+boolean lar_encounter_known_is_combat(location loc) {
+  return lar_encounter_known_is_combat(false, loc, my_turncount() + 1);
+}
+
+boolean lar_encounter_known_is_combat(location loc, int turn) {
+  return lar_encounter_known_is_combat(false, loc, turn);
+}
+
+
+
+
+
+// monsters
+monster lar_encounter_monster_with_roll(int roll, location loc) {
+  //int cpc = lar_combat_percentages[loc];
+  //return (roll > cpc);
+  monster [int] monsters = lar_monster_orders[loc];
+  return monsters[(roll-1)/(100/count(monsters))];
+}
+
+monster lar_encounter_monster(location loc, int turn) {
+  lar_roll roll = lar_monster_rolls[turn][0];
+  return lar_encounter_monster_with_roll((roll.minimum + roll.maximum) / 2, loc);
+}
+
+monster lar_encounter_monster(location loc) {
+  return lar_encounter_monster(loc, my_turncount() + 1);
+}
+
+boolean lar_encounter_known_monster(boolean guess, location loc, int turn) {
+  if (!lar_encounter_known_is_combat(guess, loc, turn)) {
+    return false;
+  }
+  if(!(lar_monster_rolls contains turn)) {
+    return false;
+  }
+  if (guess) {
+    return true;
+  }
+  lar_roll roll = lar_monster_rolls[turn][0];
+  if (lar_encounter_monster_with_roll(roll.minimum, loc) == lar_encounter_monster_with_roll(roll.maximum, loc)) {
+    return true;
+  }
+  return false;
+}
+
+boolean lar_encounter_known_monster(boolean guess, location loc) {
+  return lar_encounter_known_monster(guess, loc, my_turncount() + 1);
+}
+
+boolean lar_encounter_known_monster(location loc) {
+  return lar_encounter_known_monster(false, loc);
+}
+
+boolean lar_encounter_known_monster(location loc, int turn) {
+  return lar_encounter_known_monster(false, loc, turn);
+}
+
+
+string lar_get_known_info(location loc, int turn) {
+  string cnc = "unknown";
+  if (lar_encounter_known_is_combat(loc, turn)) {
+    if (lar_encounter_is_combat(loc, turn)) {
+      cnc = "combat";
+    } else {
+      cnc = "noncombat";
     }
   }
-  // ret = lar_encounter_data[loc, turn][turns_spent];
-  return ret;
-}
 
-boolean lar_known_encounter(location loc, string zone_special, int turn, int turns_spent) {
-  return (lar_get_encounter(loc, zone_special, turn, turns_spent).noncombat_name != lar_unknown_encounter.noncombat_name);
-}
-
-lar_encounter lar_get_encounter(location loc, int turn) {
-  return lar_get_encounter(loc, "", turn, loc.turns_spent);
-}
-
-lar_encounter lar_get_encounter(location loc) {
-  return lar_get_encounter(loc, "", my_turncount() + 1, loc.turns_spent);
-}
-
-boolean lar_known_encounter(location loc) {
-  return (lar_get_encounter(loc).noncombat_name != lar_unknown_encounter.noncombat_name);
-}
-
-string lar_encounter_to_string(lar_encounter enc) {
-  string out = "";
-  if (enc.combat) {
-    out = enc.combat_monster.to_string();
-  } else {
-    out = enc.noncombat_name;
+  if (cnc != "unknown") {
+    return(loc + " -> " + cnc);
   }
-  if (length(enc.encounter_subtype) > 0) {
-    out += " / " + enc.encounter_subtype;
-  }
-  return out;
+
+  return "";
+}
+
+string lar_get_known_info(location loc) {
+  return lar_get_known_info(loc, my_turncount() + 1);
 }

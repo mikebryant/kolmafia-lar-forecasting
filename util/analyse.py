@@ -44,7 +44,7 @@ with open("../src/data/lar_combat_percentages.txt") as fobj:
         if not line:
             continue
         loc, cpc = line.split("\t")
-        combat_percentages[loc] = float(cpc)
+        combat_percentages[loc] = int(cpc)
 
 source_encounter_lists_tmp = defaultdict(dict)
 
@@ -84,7 +84,7 @@ def guess_combat_roll(enc):
         print("%s/%s not in encounter list for %s!" % (enc.turn, enc.name, loc))
         return Roll(0, 100)
     i = el.index(enc.name)
-    return Roll((i * 100)//len(el), ((i+1) * 100)//len(el))
+    return Roll((i * 100)//len(el) + 1, ((i+1) * 100)//len(el))
 
 
 with open("lar_encounter_data_v1.txt") as fobj:
@@ -114,10 +114,10 @@ with open("lar_encounter_data_v1.txt") as fobj:
         if loc in combat_percentages:
             cpc = combat_percentages[loc]
             if combat:
-                cncrolls[turn] &= Roll(0, cpc)
+                cncrolls[turn] &= Roll(1, cpc)
                 #cncrolls[turn].maximum = min(cncrolls[turn].maximum, cpc)
             else:
-                cncrolls[turn] &= Roll(cpc, 100)
+                cncrolls[turn] &= Roll(cpc + 1, 100)
                 #cncrolls[turn].minimum = max(cncrolls[turn].minimum, cpc)
 
         mobrolls[turn] &= guess_combat_roll(enc)

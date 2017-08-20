@@ -1,13 +1,14 @@
-spooky forest	85
-the dark heart of the woods	90
-the dark elbow of the woods	90
-the dark neck of the woods	90
-the defiled niche	85
-the defiled cranny	85
-the defiled alcove	85
-the defiled nook	85
-the penultimate fantasy airship	80
-the obligatory pirate's cove	58.8
-the sleazy back alley	80
 haunted pantry	82
 outskirts of cobb's knob	80
+sonofa beach	10
+spooky forest	85
+the dark elbow of the woods	90
+the dark heart of the woods	90
+the dark neck of the woods	90
+the defiled alcove	85
+the defiled cranny	85
+the defiled niche	85
+the defiled nook	85
+the obligatory pirate's cove	59
+the penultimate fantasy airship	80
+the sleazy back alley	80
