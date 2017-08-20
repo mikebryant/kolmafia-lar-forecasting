@@ -28,6 +28,7 @@ outskirts of cobb's knob	0	knob goblin barbecue team
 outskirts of cobb's knob	1	sub-assistant knob mad scientist
 outskirts of cobb's knob	2	knob goblin assistant chef
 outskirts of cobb's knob	3	sleeping knob goblin guard
+sonofa beach	0	lobsterfrogman
 spooky forest	0	triffid
 spooky forest	1	bar
 spooky forest	2	spooky mummy

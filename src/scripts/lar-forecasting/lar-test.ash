@@ -17,4 +17,8 @@ void main() {
     print("Fail: Spooky forest turn 1 should be a triffid");
   }
 
+  if((lar_encounter_monster($location[sonofa beach], 1) != $monster[lobsterfrogman])) {
+    print("Fail: Sonofa beach turn 422 should be a lobsterfrogman");
+  }
+
 }
