@@ -133,6 +133,26 @@ for turn in range(1, MAX_TURN):
             continue
         cncrolls[turn] &= Roll(1, combat_percentages[loc])
 
+# Special processing - 8-bit
+for turn in range(1, MAX_TURN):
+    odd_enc = bylocturn["8-bit realm / odd"].get(turn, None)
+    even_enc = bylocturn["8-bit realm / even"].get(turn, None)
+    if not odd_enc or not even_enc:
+        # Can't say with certainty if it's right, as it could be from a
+        # rejection of Goomba or Buzzy Beetle
+        continue
+    if odd_enc.name == "goomba" and even_enc.name == "buzzy beetle":
+        # How to tell which is real and which is the rejection reroll?
+        continue
+    if odd_enc.name == even_enc.name:
+        enc = Encounter("8-bit realm", odd_enc.turn, odd_enc.combat, odd_enc.name)
+    elif odd_enc.name == "goomba":
+        enc = Encounter("8-bit realm", odd_enc.turn, odd_enc.combat, odd_enc.name)
+    elif even_enc.name == "buzzy beetle":
+        enc = Encounter("8-bit realm", even_enc.turn, even_enc.combat, even_enc.name)
+    byturn[turn].append(enc)
+    mobrolls[turn] &= guess_combat_roll(enc)
+
 # For determining encounter correspondences
 for turn in range(1, MAX_TURN):
     try:

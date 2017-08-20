@@ -1,8 +1,8 @@
 8-bit realm	0	buzzy beetle
 8-bit realm	1	bullet bill
 8-bit realm	2	zol
-8-bit realm	3	blooper
-8-bit realm	4	keese
+8-bit realm	3	keese
+8-bit realm	4	blooper
 8-bit realm	5	octorok
 8-bit realm	6	koopa troopa
 8-bit realm	7	tektite
