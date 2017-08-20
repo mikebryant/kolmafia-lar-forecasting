@@ -1,0 +1,3 @@
+#!/bin/sh
+
+curl -o data.csv 'https://docs.google.com/spreadsheets/d/1HQk1ANU-Uu4VrY5i7KDwPIrDQg37atFGIV1xra1nMfI/export?gid=0&format=csv'

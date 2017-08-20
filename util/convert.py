@@ -17,6 +17,11 @@ def sanitise_location(data, loc):
     if match is not None:
         loc = match.groups()[0]
 
+    match = re.match("8-bit realm / (even|odd)", loc)
+    if match is not None:
+        loc = "8-bit realm"
+        subtype = match.groups()[0]
+
     loc = loc.replace("castle in the sky", "castle in the clouds in the sky")
     loc = loc.replace("hey deze arena", "infernal rackets backstage")
     loc = loc.replace("belilafs comedy club", "laugh floor")
@@ -47,9 +52,10 @@ def convert(fobj):
     locations = []
     for row in csvreader:
         if row[0] == 'Turn Count':
-            locations = [sanitise_location(locations_data, loc) for loc in row[1:]]
+            locations = [sanitise_location(locations_data, loc.replace("\n", " ")) for loc in row[1:]]
         elif locations and row[0]:
             for loc, enc in zip(locations, row[1:]):
+                enc = enc.replace("\n", " ")
                 if not enc or not loc:
                     continue
                 monster_name, monster_subtype = sanitise_monster(enc)
@@ -76,7 +82,7 @@ def convert(fobj):
 def main(argv):
     if len(argv) < 3:
         print("""
-            Usage: ./convert.py expanded.csv lar_encounter_data_v1.txt
+            Usage: ./convert.py data.csv lar_encounter_data_v1.txt
 
             Download from https://docs.google.com/spreadsheets/d/1HQk1ANU-Uu4VrY5i7KDwPIrDQg37atFGIV1xra1nMfI/
             Use `File` -> `Download as` -> `Comma-separated values`
