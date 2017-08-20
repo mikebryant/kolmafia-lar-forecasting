@@ -47,6 +47,11 @@ the dark neck of the woods	2	w imp
 the old landfill	0	junksprite sharpener
 the old landfill	1	junksprite melter
 the old landfill	2	junksprite bender
+the sleazy back alley	0	hung-over half-orc hobo
+the sleazy back alley	1	rushing bum
+the sleazy back alley	2	drunken half-orc hobo
+the sleazy back alley	3	completely different spider
+the sleazy back alley	4	big creepy spider
 whitey's grove	0	knight in white satin
 whitey's grove	1	white chocolate golem
 whitey's grove	2	white lion

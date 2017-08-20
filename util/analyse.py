@@ -73,6 +73,7 @@ cnc_analysis_skip_locations = [
 monster_analysis_skip_locations = [
     "8-bit realm", # Odd/even rejection
     "haunted pantry", # Odd/even rejection
+    "the sleazy back alley", #Odd/even rejection
 ]
 
 def guess_combat_roll(enc):
