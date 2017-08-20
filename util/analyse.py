@@ -172,7 +172,7 @@ with open("../src/data/lar_cnc_rolls.txt", "w") as fobj:
         roll = cncrolls[turn]
         if roll.minimum >= roll.maximum:
             # Don't record the data if it's broken
-            continue
+            roll = Roll(1, 100)
         fobj.write("%s\t%s\t%s\n" % (turn, roll.minimum, roll.maximum))
 
 with open("../src/data/lar_monster_rolls.txt", "w") as fobj:
@@ -180,6 +180,6 @@ with open("../src/data/lar_monster_rolls.txt", "w") as fobj:
         roll = mobrolls[turn]
         if roll.minimum >= roll.maximum:
             # Don't record the data if it's broken
-            continue
+            roll = Roll(1, 100)
         # Turn, roll_number (so we can add the rerolls on rejections in future), min, max
         fobj.write("%s\t%s\t%s\t%s\n" % (turn, 0, roll.minimum, roll.maximum))
