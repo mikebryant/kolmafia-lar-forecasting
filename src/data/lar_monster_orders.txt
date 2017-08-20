@@ -47,3 +47,7 @@ the dark neck of the woods	2	w imp
 the old landfill	0	junksprite sharpener
 the old landfill	1	junksprite melter
 the old landfill	2	junksprite bender
+whitey's grove	0	knight in white satin
+whitey's grove	1	white chocolate golem
+whitey's grove	2	white lion
+whitey's grove	3	whitesnake
