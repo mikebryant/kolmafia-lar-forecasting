@@ -64,7 +64,5 @@ Returned: false
 
 ```
 cd utils
-./download
-./convert.py data.csv lar_encounter_data_v1.txt
-./analyse.py
+./update
 ```

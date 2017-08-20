@@ -1,0 +1,5 @@
+#!/bin/sh
+
+./download
+./convert.py data.csv lar_encounter_data_v1.txt
+./analyse.py
