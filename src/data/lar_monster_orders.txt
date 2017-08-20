@@ -43,3 +43,6 @@ the dark heart of the woods	2	p imp
 the dark neck of the woods	0	hellion
 the dark neck of the woods	1	p imp
 the dark neck of the woods	2	w imp
+the old landfill	0	junksprite sharpener
+the old landfill	1	junksprite melter
+the old landfill	2	junksprite bender

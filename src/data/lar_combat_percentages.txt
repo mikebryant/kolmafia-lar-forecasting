@@ -10,5 +10,6 @@ the defiled cranny	85
 the defiled niche	85
 the defiled nook	85
 the obligatory pirate's cove	59
+the old landfill	100
 the penultimate fantasy airship	80
 the sleazy back alley	80

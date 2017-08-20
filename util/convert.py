@@ -39,7 +39,14 @@ def sanitise_monster(data):
         return (data.replace(" (good)", ""), "good")
     if data.endswith(" (bad)"):
         return (data.replace(" (bad)", ""), "bad")
+    match = re.match(".*junksprite [\w ]+ (bender|melter|sharpener)", data)
+    if match is not None:
+        data = "junksprite " + match.groups()[0]
     return (data, "")
+
+forbidden_encounters = [
+    "once more unto the junk",
+]
 
 def convert(fobj):
     csvreader = csv.reader(fobj)
@@ -56,7 +63,10 @@ def convert(fobj):
         elif locations and row[0]:
             for loc, enc in zip(locations, row[1:]):
                 enc = enc.replace("\n", " ")
+                enc = enc.lower()
                 if not enc or not loc:
+                    continue
+                if enc in forbidden_encounters:
                     continue
                 monster_name, monster_subtype = sanitise_monster(enc)
                 if monster_name in monsters:
