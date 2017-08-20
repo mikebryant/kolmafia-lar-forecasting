@@ -65,8 +65,6 @@ for loc in source_encounter_lists_tmp:
     if not all(source_encounter_lists[loc]):
         print "Datafile lar_monster_orders.txt issue:", source_encounter_lists[loc]
 
-print source_encounter_lists
-
 analysis_skip_locations = [
     "8-bit realm",
     "haunted pantry",
