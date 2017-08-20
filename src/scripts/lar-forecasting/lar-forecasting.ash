@@ -98,6 +98,9 @@ monster lar_encounter_monster(location loc) {
 }
 
 boolean lar_encounter_known_monster(boolean guess, location loc, int turn) {
+  if(!(lar_monster_orders contains loc)) {
+    return false;
+  }
   if (!lar_encounter_known_is_combat(guess, loc, turn)) {
     return false;
   }
