@@ -123,6 +123,15 @@ with open("lar_encounter_data_v1.txt") as fobj:
         if loc not in monster_analysis_skip_locations:
             mobrolls[turn] &= guess_combat_roll(enc)
 
+# Special processing - black forest / spooky forest
+for turn in range(1, MAX_TURN):
+    for loc in ["black forest", "spooky forest"]:
+        enc = bylocturn[loc].get(turn, None)
+        if enc is None:
+            continue
+        if not enc.combat:
+            continue
+        cncrolls[turn] &= Roll(1, combat_percentages[loc])
 
 # For determining encounter correspondences
 for turn in range(1, MAX_TURN):
