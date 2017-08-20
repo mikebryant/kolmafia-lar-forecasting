@@ -28,9 +28,9 @@ class Roll(object):
     def __repr__(self):
         return "Roll(%s, %s)" % (self.minimum, self.maximum)
 
-cncrolls = defaultdict(lambda: Roll(0, 100))
+cncrolls = defaultdict(lambda: Roll(1, 100))
 
-mobrolls = defaultdict(lambda: Roll(0, 100))
+mobrolls = defaultdict(lambda: Roll(1, 100))
 
 byturn = defaultdict(list)
 byloc = defaultdict(list)
@@ -76,13 +76,13 @@ analysis_skip_locations = [
 def guess_combat_roll(enc):
     loc = enc.location
     if not combat:
-        return Roll(0, 100)
+        return Roll(1, 100)
     if loc not in source_encounter_lists:
-        return Roll(0, 100)
+        return Roll(1, 100)
     el = source_encounter_lists[loc]
     if enc.name not in el:
         print("%s/%s not in encounter list for %s!" % (enc.turn, enc.name, loc))
-        return Roll(0, 100)
+        return Roll(1, 100)
     i = el.index(enc.name)
     return Roll((i * 100)//len(el) + 1, ((i+1) * 100)//len(el))
 
