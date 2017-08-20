@@ -10,6 +10,7 @@ the defiled alcove	85
 the defiled cranny	85
 the defiled niche	85
 the defiled nook	85
+the hidden temple	90
 the obligatory pirate's cove	59
 the old landfill	100
 the penultimate fantasy airship	80
