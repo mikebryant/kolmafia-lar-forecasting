@@ -2,6 +2,8 @@
 
 from collections import defaultdict
 
+MAX_TURN = 1
+
 class Encounter(object):
     def __init__(self, location, turn, combat, name):
         self.location = location
@@ -20,36 +22,30 @@ class Roll(object):
         self.minimum = minimum
         self.maximum = maximum
 
+    def __and__(self, other):
+        return Roll(max(self.minimum, other.minimum), min(self.maximum, other.maximum))
+
     def __repr__(self):
         return "Roll(%s, %s)" % (self.minimum, self.maximum)
 
-cncrolls = {}
-for i in range(1, 2000):
-    cncrolls[i] = Roll(0, 100)
+cncrolls = defaultdict(lambda: Roll(0, 100))
 
-mobrolls = {}
-for i in range(1, 2000):
-    mobrolls[i] = Roll(0, 100)
+mobrolls = defaultdict(lambda: Roll(0, 100))
 
 byturn = defaultdict(list)
 byloc = defaultdict(list)
 bylocturn = defaultdict(dict)
 
-combat_percentages = {
-    "spooky forest": 85,
-    "the dark heart of the woods": 90,
-    "the dark elbow of the woods": 90,
-    "the dark neck of the woods": 90,
-    "the defiled niche": 85,
-    "the defiled cranny": 85,
-    "the defiled alcove": 85,
-    "the defiled nook": 85,
-    "the penultimate fantasy airship": 80,
-    "the obligatory pirate's cove": 58.8,
-    "the sleazy back alley": 80,
-    "haunted pantry": 82,
-    "outskirts of cobb's knob": 80,
-}
+combat_percentages = {}
+
+with open("../src/data/lar_combat_percentages.txt") as fobj:
+    for line in fobj.readlines():
+        line = line.strip()
+        print line.split("\t")
+        if not line:
+            continue
+        loc, cpc = line.split("\t")
+        combat_percentages[loc] = cpc
 
 source_encounter_lists = {
     "the dark heart of the woods": [
@@ -122,7 +118,24 @@ check_encounter_lists = {
     ],
 }
 
-#def guess_roll(loc, enc):
+analysis_skip_locations = [
+    "8-bit realm",
+    "haunted pantry",
+    "spooky forest",
+]
+
+def guess_combat_roll(enc):
+    loc = enc.location
+    if not combat:
+        return Roll(0, 100)
+    if loc not in source_encounter_lists:
+        return Roll(0, 100)
+    el = source_encounter_lists[loc]
+    if enc.name not in el:
+        print("%s/%s not in encounter list for %s!" % (enc.turn, enc.name, loc))
+        return Roll(0, 100)
+    i = el.index(enc.name)
+    return Roll((i * 100)//len(el), ((i+1) * 100)//len(el))
 
 
 with open("lar_encounter_data_v1.txt") as fobj:
@@ -137,6 +150,7 @@ with open("lar_encounter_data_v1.txt") as fobj:
             loc = loc + " / " + subtype
         combat = combat == "true"
         turn = int(turn)
+        MAX_TURN = max(MAX_TURN, turn)
         if monster_name == "none":
             monster_name = ''
         enc = Encounter(loc, turn, combat, monster_name or encounter_name)
@@ -147,10 +161,15 @@ with open("lar_encounter_data_v1.txt") as fobj:
         if loc in combat_percentages:
             cpc = combat_percentages[loc]
             if combat:
-                cncrolls[turn].maximum = min(cncrolls[turn].maximum, cpc)
+                cncrolls[turn] &= Roll(0, cpc)
+                #cncrolls[turn].maximum = min(cncrolls[turn].maximum, cpc)
             else:
-                cncrolls[turn].minimum = max(cncrolls[turn].minimum, cpc)
+                cncrolls[turn] &= Roll(cpc, 100)
+                #cncrolls[turn].minimum = max(cncrolls[turn].minimum, cpc)
 
+        mobrolls[turn] &= guess_combat_roll(enc)
+
+        """
         if loc in source_encounter_lists:
             if combat:
                 el = source_encounter_lists[loc]
@@ -160,11 +179,12 @@ with open("lar_encounter_data_v1.txt") as fobj:
                     i = el.index(enc.name)
                     mobrolls[turn].minimum = max(mobrolls[turn].minimum, (i * 100)//len(el))
                     mobrolls[turn].maximum = min(mobrolls[turn].maximum, ((i+1) * 100)//len(el))
+        """
 
 
 
 # For determining encounter correspondences
-for turn in range(1, 1500):
+for turn in range(1, MAX_TURN):
     try:
         #s = bylocturn["spooky forest"][turn]
         locs = [
@@ -191,17 +211,35 @@ for turn in range(1, 1500):
     except KeyError:
         pass
 
-# Debugging
-for turn in range(1, 10):
-    print "CNC", turn, cncrolls[turn]
+print "Errors:"
+for turn in range(1, 50):
+
     if cncrolls[turn].minimum >= cncrolls[turn].maximum:
-
+        print "CNC", turn, cncrolls[turn]
         for enc in byturn[turn]:
-            print "\t", enc.location, enc.combat, combat_percentages.get(enc.location, '')
-    print "M", turn, mobrolls[turn]
+            if enc.location in combat_percentages:
+                print "\t", enc.location, enc.combat, combat_percentages[enc.location]
+
     if mobrolls[turn].minimum >= mobrolls[turn].maximum:
-
-
+        print "M", turn, mobrolls[turn]
         for enc in byturn[turn]:
             if enc.combat:
-                print "\t", enc.location, enc.name
+                print "\t", enc.location, enc.name, guess_combat_roll(enc)
+print "End of Errors"
+
+with open("../src/data/lar_cnc_rolls.txt", "w") as fobj:
+    for turn in range(1, MAX_TURN):
+        roll = cncrolls[turn]
+        if roll.minimum >= roll.maximum:
+            # Don't record the data if it's broken
+            continue
+        fobj.write("%s\t%s\t%s\n" % (turn, roll.minimum, roll.maximum))
+
+with open("../src/data/lar_monster_rolls.txt", "w") as fobj:
+    for turn in range(1, MAX_TURN):
+        roll = mobrolls[turn]
+        if roll.minimum >= roll.maximum:
+            # Don't record the data if it's broken
+            continue
+        # Turn, roll_number (so we can add the rerolls on rejections in future), min, max
+        fobj.write("%s\t%s\t%s\t%s\n" % (turn, 0, roll.minimum, roll.maximum))
