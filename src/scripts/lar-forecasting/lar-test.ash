@@ -13,6 +13,10 @@ void main() {
     print("Fail: We should know the combat status of sonofa beach at turn 576");
   }
 
+  if (lar_encounter_is_combat($location[the dark heart of the woods], 23)) {
+    print("Fail: Spooky 23 is NC");
+  }
+
   if((lar_encounter_monster($location[the spooky forest], 1) != $monster[triffid])) {
     print("Fail: Spooky forest turn 1 should be a triffid");
   }

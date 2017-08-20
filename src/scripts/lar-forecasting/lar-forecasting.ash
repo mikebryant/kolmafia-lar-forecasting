@@ -34,7 +34,7 @@ lar_load_data();
 
 boolean lar_encounter_is_combat_with_roll(int roll, location loc) {
   int cpc = lar_combat_percentages[loc];
-  return (roll > cpc);
+  return (roll <= cpc);
 }
 
 boolean lar_encounter_is_combat(location loc, int turn) {
