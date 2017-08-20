@@ -1,4 +1,3 @@
-script "lar-forecasting.ash";
 notify "LeaChim";
 
 record lar_roll {

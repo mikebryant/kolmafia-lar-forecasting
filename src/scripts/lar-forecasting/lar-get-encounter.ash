@@ -1,3 +1,5 @@
+notify "LeaChim";
+
 import "lar-forecasting.ash";
 
 void main(string loc, int turn) {
