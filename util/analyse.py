@@ -41,82 +41,31 @@ combat_percentages = {}
 with open("../src/data/lar_combat_percentages.txt") as fobj:
     for line in fobj.readlines():
         line = line.strip()
-        print line.split("\t")
         if not line:
             continue
         loc, cpc = line.split("\t")
-        combat_percentages[loc] = cpc
+        combat_percentages[loc] = float(cpc)
 
-source_encounter_lists = {
-    "the dark heart of the woods": [
-        "fallen archfiend",
-        "g imp",
-        "p imp",
-    ],
-    "the dark neck of the woods": [
-        "hellion",
-        "p imp",
-        "w imp",
-    ],
-    "the dark elbow of the woods": [
-        "demoninja",
-        "g imp",
-        "l imp",
-    ],
-    "black forest": [
-        "black friar",
-        "black magic woman",
-        "black panther",
-        "black widow",
-        "black adder",
-    ],
-    "haunted billiards room": [
-        "pooltergeist",
-        "chalkdust wraith",
-    ],
-    "outskirts of cobb's knob": [
-        "knob goblin barbecue team",
-        "sub-assistant knob mad scientist",
-        "knob goblin assistant chef",
-        "sleeping knob goblin guard",
-    ],
-    "haunted kitchen": [
-        "zombie chef",
-        "skullery maid",
-        "paper towelgeist",
-        "demonic icebox",
-        "possessed silverware drawer",
-    ],
-}
+source_encounter_lists_tmp = defaultdict(dict)
 
-check_encounter_lists = {
-    "spooky forest": [
-        "triffid",
-        "bar",
-        "spooky mummy",
-        "wolfman",
-        "warwelf",
-        "spooky vampire",
-    ],
-    "8-bit realm": [
-        "buzzy beetle",
-        "bullet bill",
-        "zol",
-        "blooper",
-        "keese",
-        "octorok",
-        "koopa troopa",
-        "tektite",
-        "goomba",
-    ],
-    "haunted pantry": [
-        "overdone flame-broiled meat blob",
-        "flame-broiled meat blob",
-        "undead elbow macaroni",
-        "fiendish can of asparagus",
-        "possessed can of tomatoes",
-    ],
-}
+with open("../src/data/lar_monster_orders.txt") as fobj:
+    for line in fobj.readlines():
+        line = line.strip()
+        if not line:
+            continue
+        loc, i, name = line.split("\t")
+        i = int(i)
+        source_encounter_lists_tmp[loc][i] = name
+
+source_encounter_lists = {}
+for loc in source_encounter_lists_tmp:
+    source_encounter_lists[loc] = [None] * (max(source_encounter_lists_tmp[loc].keys()) + 1)
+    for k, v in source_encounter_lists_tmp[loc].items():
+        source_encounter_lists[loc][k] = v
+    if not all(source_encounter_lists[loc]):
+        print "Datafile lar_monster_orders.txt issue:", source_encounter_lists[loc]
+
+print source_encounter_lists
 
 analysis_skip_locations = [
     "8-bit realm",
@@ -158,6 +107,10 @@ with open("lar_encounter_data_v1.txt") as fobj:
         byloc[loc].append(enc)
         bylocturn[loc][turn] = enc
 
+        # Skip analysis of zones with delay, for now
+        if loc in analysis_skip_locations:
+            continue
+
         if loc in combat_percentages:
             cpc = combat_percentages[loc]
             if combat:
@@ -168,19 +121,6 @@ with open("lar_encounter_data_v1.txt") as fobj:
                 #cncrolls[turn].minimum = max(cncrolls[turn].minimum, cpc)
 
         mobrolls[turn] &= guess_combat_roll(enc)
-
-        """
-        if loc in source_encounter_lists:
-            if combat:
-                el = source_encounter_lists[loc]
-                if enc.name not in el:
-                    print("%s not in encounter list for %s!" % (enc.name, loc))
-                else:
-                    i = el.index(enc.name)
-                    mobrolls[turn].minimum = max(mobrolls[turn].minimum, (i * 100)//len(el))
-                    mobrolls[turn].maximum = min(mobrolls[turn].maximum, ((i+1) * 100)//len(el))
-        """
-
 
 
 # For determining encounter correspondences
@@ -212,7 +152,7 @@ for turn in range(1, MAX_TURN):
         pass
 
 print "Errors:"
-for turn in range(1, 50):
+for turn in range(1, MAX_TURN):
 
     if cncrolls[turn].minimum >= cncrolls[turn].maximum:
         print "CNC", turn, cncrolls[turn]

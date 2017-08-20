@@ -1,0 +1,45 @@
+black forest	0	black friar
+black forest	1	black magic woman
+black forest	2	black panther
+black forest	3	black widow
+black forest	4	black adder
+8-bit realm	0	buzzy beetle
+8-bit realm	1	bullet bill
+8-bit realm	2	zol
+8-bit realm	3	blooper
+8-bit realm	4	keese
+8-bit realm	5	octorok
+8-bit realm	6	koopa troopa
+8-bit realm	7	tektite
+8-bit realm	8	goomba
+the dark heart of the woods	0	fallen archfiend
+the dark heart of the woods	1	g imp
+the dark heart of the woods	2	p imp
+haunted billiards room	0	pooltergeist
+haunted billiards room	1	chalkdust wraith
+the dark neck of the woods	0	hellion
+the dark neck of the woods	1	p imp
+the dark neck of the woods	2	w imp
+outskirts of cobb's knob	0	knob goblin barbecue team
+outskirts of cobb's knob	1	sub-assistant knob mad scientist
+outskirts of cobb's knob	2	knob goblin assistant chef
+outskirts of cobb's knob	3	sleeping knob goblin guard
+haunted kitchen	0	zombie chef
+haunted kitchen	1	skullery maid
+haunted kitchen	2	paper towelgeist
+haunted kitchen	3	demonic icebox
+haunted kitchen	4	possessed silverware drawer
+spooky forest	0	triffid
+spooky forest	1	bar
+spooky forest	2	spooky mummy
+spooky forest	3	wolfman
+spooky forest	4	warwelf
+spooky forest	5	spooky vampire
+the dark elbow of the woods	0	demoninja
+the dark elbow of the woods	1	g imp
+the dark elbow of the woods	2	l imp
+haunted pantry	0	overdone flame-broiled meat blob
+haunted pantry	1	flame-broiled meat blob
+haunted pantry	2	undead elbow macaroni
+haunted pantry	3	fiendish can of asparagus
+haunted pantry	4	possessed can of tomatoes
