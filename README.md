@@ -67,6 +67,7 @@ If you're interested in the data I've generated / computed:
 `src/data/lar_monster_rolls.txt` - Monster rolls per turn
 `src/data/lar_monster_orders.txt` - What order the monsters appear in each zone
 
+All rolls are presented as max/min pairs, as it still needs to be narrowed down, but this data is still useful for some zones.
 
 ## Updating
 
