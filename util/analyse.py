@@ -66,9 +66,10 @@ for loc in source_encounter_lists_tmp:
         print "Datafile lar_monster_orders.txt issue:", source_encounter_lists[loc]
 
 analysis_skip_locations = [
-    "8-bit realm",
-    "haunted pantry",
-    "spooky forest",
+    "8-bit realm", # Odd/even rejection
+    "black forest", # Has all of the map superlikelies.
+    "haunted pantry", # Odd/even rejection
+    "spooky forest", # aboreal superlikely
 ]
 
 def guess_combat_roll(enc):
