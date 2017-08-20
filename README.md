@@ -59,6 +59,14 @@ Returned: true
 Returned: false
 ```
 
+## Data files
+
+If you're interested in the data I've generated / computed:
+
+`src/data/lar_cnc_rolls.txt` - Combat/Noncombat rolls per turn
+`src/data/lar_monster_rolls.txt` - Monster rolls per turn
+`src/data/lar_monster_orders.txt` - What order the monsters appear in each zone
+
 
 ## Updating
 
