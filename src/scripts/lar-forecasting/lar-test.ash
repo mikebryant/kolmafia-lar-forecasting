@@ -14,6 +14,10 @@ void main() {
   }
 
   if (lar_encounter_is_combat($location[the dark heart of the woods], 23)) {
+    print("Fail: Dark heart 23 is NC");
+  }
+
+  if (lar_encounter_is_combat($location[the spooky forest], 23)) {
     print("Fail: Spooky 23 is NC");
   }
 
