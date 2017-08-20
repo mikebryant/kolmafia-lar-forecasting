@@ -65,11 +65,14 @@ for loc in source_encounter_lists_tmp:
     if not all(source_encounter_lists[loc]):
         print "Datafile lar_monster_orders.txt issue:", source_encounter_lists[loc]
 
-analysis_skip_locations = [
-    "8-bit realm", # Odd/even rejection
+cnc_analysis_skip_locations = [
     "black forest", # Has all of the map superlikelies.
-    "haunted pantry", # Odd/even rejection
     "spooky forest", # aboreal superlikely
+]
+
+monster_analysis_skip_locations = [
+    "8-bit realm", # Odd/even rejection
+    "haunted pantry", # Odd/even rejection
 ]
 
 def guess_combat_roll(enc):
@@ -107,19 +110,18 @@ with open("lar_encounter_data_v1.txt") as fobj:
         bylocturn[loc][turn] = enc
 
         # Skip analysis of zones with delay, for now
-        if loc in analysis_skip_locations:
-            continue
+        if loc not in cnc_analysis_skip_locations:
+            if loc in combat_percentages:
+                cpc = combat_percentages[loc]
+                if combat:
+                    cncrolls[turn] &= Roll(1, cpc)
+                    #cncrolls[turn].maximum = min(cncrolls[turn].maximum, cpc)
+                else:
+                    cncrolls[turn] &= Roll(cpc + 1, 100)
+                    #cncrolls[turn].minimum = max(cncrolls[turn].minimum, cpc)
 
-        if loc in combat_percentages:
-            cpc = combat_percentages[loc]
-            if combat:
-                cncrolls[turn] &= Roll(1, cpc)
-                #cncrolls[turn].maximum = min(cncrolls[turn].maximum, cpc)
-            else:
-                cncrolls[turn] &= Roll(cpc + 1, 100)
-                #cncrolls[turn].minimum = max(cncrolls[turn].minimum, cpc)
-
-        mobrolls[turn] &= guess_combat_roll(enc)
+        if loc not in monster_analysis_skip_locations:
+            mobrolls[turn] &= guess_combat_roll(enc)
 
 
 # For determining encounter correspondences
