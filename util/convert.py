@@ -45,6 +45,7 @@ def sanitise_monster(data):
     return (data, "")
 
 forbidden_encounters = [
+    "a wheel -- how fortunate!",
     "conjoined zmobie",
     "giant skleleton",
     "giant skeelton",

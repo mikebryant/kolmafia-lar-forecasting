@@ -7,11 +7,27 @@
 8-bit realm	6	koopa troopa
 8-bit realm	7	tektite
 8-bit realm	8	goomba
+a-boo peak	0	whatsian commando ghost
+a-boo peak	1	battlie knight ghost
+a-boo peak	2	space tourist explorer ghost
+a-boo peak	3	dusken raider ghost
+a-boo peak	4	claybender sorcerer ghost
+a barroom brawl	0	unemployed knob goblin
+a barroom brawl	1	drunken 7-foot dwarf
+a barroom brawl	2	skeleton with a mop
+a barroom brawl	3	plastered frat orc
+a barroom brawl	4	werecougar
+barrrney's barrr	0	toothy pirate
+barrrney's barrr	1	tipsy pirate
+barrrney's barrr	2	tetchy pirate
 black forest	0	black friar
 black forest	1	black magic woman
 black forest	2	black panther
 black forest	3	black widow
 black forest	4	black adder
+cobb's knob harem	0	knob goblin madam
+cobb's knob harem	1	knob goblin harem guard
+cobb's knob harem	2	knob goblin harem girl
 guano junction	0	vampire bat
 guano junction	1	perpendicular bat
 guano junction	2	briefcase bat
