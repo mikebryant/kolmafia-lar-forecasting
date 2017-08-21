@@ -12,6 +12,12 @@ black forest	1	black magic woman
 black forest	2	black panther
 black forest	3	black widow
 black forest	4	black adder
+guano junction	0	vampire bat
+guano junction	1	perpendicular bat
+guano junction	2	briefcase bat
+guano junction	3	skullbat
+guano junction	4	baseball bat
+guano junction	5	doughbat
 haunted billiards room	0	pooltergeist
 haunted billiards room	1	chalkdust wraith
 haunted kitchen	0	zombie chef
@@ -35,6 +41,9 @@ spooky forest	2	spooky mummy
 spooky forest	3	wolfman
 spooky forest	4	warwelf
 spooky forest	5	spooky vampire
+the batrat and ratbat burrow	0	ratbat
+the batrat and ratbat burrow	1	batrat
+the beanbat chamber	0	beanbat
 the dark elbow of the woods	0	demoninja
 the dark elbow of the woods	1	g imp
 the dark elbow of the woods	2	l imp

@@ -1,9 +1,13 @@
 8-bit realm	100
 black forest	95
+guano junction	100
 haunted pantry	82
 outskirts of cobb's knob	80
 sonofa beach	10
 spooky forest	85
+the bat hole entrance	100
+the batrat and ratbat burrow	100
+the beanbat chamber	100
 the dark elbow of the woods	90
 the dark heart of the woods	90
 the dark neck of the woods	90
@@ -12,6 +16,7 @@ the defiled cranny	85
 the defiled niche	85
 the defiled nook	85
 the hidden temple	90
+the middle chamber	100
 the obligatory pirate's cove	59
 the old landfill	100
 the penultimate fantasy airship	80
