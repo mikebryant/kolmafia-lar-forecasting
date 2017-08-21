@@ -15,7 +15,7 @@ def sanitise_location(data, loc):
 
     match = re.match("pyramid \((.*)\)", loc)
     if match is not None:
-        loc = match.groups()[0]
+        loc = "the " + match.groups()[0]
 
     match = re.match("8-bit realm / (even|odd)", loc)
     if match is not None:
