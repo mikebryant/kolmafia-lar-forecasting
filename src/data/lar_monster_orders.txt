@@ -1,83 +1,83 @@
-8-bit realm	0	buzzy beetle
-8-bit realm	1	bullet bill
-8-bit realm	2	zol
-8-bit realm	3	keese
+8-bit realm	8	buzzy beetle
+8-bit realm	7	bullet bill
+8-bit realm	6	zol
+8-bit realm	5	keese
 8-bit realm	4	blooper
-8-bit realm	5	octorok
-8-bit realm	6	koopa troopa
-8-bit realm	7	tektite
-8-bit realm	8	goomba
-a-boo peak	0	whatsian commando ghost
-a-boo peak	1	battlie knight ghost
+8-bit realm	3	octorok
+8-bit realm	2	koopa troopa
+8-bit realm	1	tektite
+8-bit realm	0	goomba
+a-boo peak	4	whatsian commando ghost
+a-boo peak	3	battlie knight ghost
 a-boo peak	2	space tourist explorer ghost
-a-boo peak	3	dusken raider ghost
-a-boo peak	4	claybender sorcerer ghost
-a barroom brawl	0	unemployed knob goblin
-a barroom brawl	1	drunken 7-foot dwarf
+a-boo peak	1	dusken raider ghost
+a-boo peak	0	claybender sorcerer ghost
+a barroom brawl	4	unemployed knob goblin
+a barroom brawl	3	drunken 7-foot dwarf
 a barroom brawl	2	skeleton with a mop
-a barroom brawl	3	plastered frat orc
-a barroom brawl	4	werecougar
-barrrney's barrr	0	toothy pirate
+a barroom brawl	1	plastered frat orc
+a barroom brawl	0	werecougar
+barrrney's barrr	2	toothy pirate
 barrrney's barrr	1	tipsy pirate
-barrrney's barrr	2	tetchy pirate
-black forest	0	black friar
-black forest	1	black magic woman
+barrrney's barrr	0	tetchy pirate
+black forest	4	black friar
+black forest	3	black magic woman
 black forest	2	black panther
-black forest	3	black widow
-black forest	4	black adder
-cobb's knob harem	0	knob goblin madam
+black forest	1	black widow
+black forest	0	black adder
+cobb's knob harem	2	knob goblin madam
 cobb's knob harem	1	knob goblin harem guard
-cobb's knob harem	2	knob goblin harem girl
-guano junction	0	vampire bat
-guano junction	1	perpendicular bat
-guano junction	2	briefcase bat
-guano junction	3	skullbat
-guano junction	4	baseball bat
-guano junction	5	doughbat
-haunted billiards room	0	pooltergeist
-haunted billiards room	1	chalkdust wraith
-haunted kitchen	0	zombie chef
-haunted kitchen	1	skullery maid
+cobb's knob harem	0	knob goblin harem girl
+guano junction	5	vampire bat
+guano junction	4	perpendicular bat
+guano junction	3	briefcase bat
+guano junction	2	skullbat
+guano junction	1	baseball bat
+guano junction	0	doughbat
+haunted billiards room	1	pooltergeist
+haunted billiards room	0	chalkdust wraith
+haunted kitchen	4	zombie chef
+haunted kitchen	3	skullery maid
 haunted kitchen	2	paper towelgeist
-haunted kitchen	3	demonic icebox
-haunted kitchen	4	possessed silverware drawer
-haunted pantry	0	overdone flame-broiled meat blob
-haunted pantry	1	flame-broiled meat blob
+haunted kitchen	1	demonic icebox
+haunted kitchen	0	possessed silverware drawer
+haunted pantry	4	overdone flame-broiled meat blob
+haunted pantry	3	flame-broiled meat blob
 haunted pantry	2	undead elbow macaroni
-haunted pantry	3	fiendish can of asparagus
-haunted pantry	4	possessed can of tomatoes
-outskirts of cobb's knob	0	knob goblin barbecue team
-outskirts of cobb's knob	1	sub-assistant knob mad scientist
-outskirts of cobb's knob	2	knob goblin assistant chef
-outskirts of cobb's knob	3	sleeping knob goblin guard
+haunted pantry	1	fiendish can of asparagus
+haunted pantry	0	possessed can of tomatoes
+outskirts of cobb's knob	3	knob goblin barbecue team
+outskirts of cobb's knob	2	sub-assistant knob mad scientist
+outskirts of cobb's knob	1	knob goblin assistant chef
+outskirts of cobb's knob	0	sleeping knob goblin guard
 sonofa beach	0	lobsterfrogman
-spooky forest	0	triffid
-spooky forest	1	bar
-spooky forest	2	spooky mummy
-spooky forest	3	wolfman
-spooky forest	4	warwelf
-spooky forest	5	spooky vampire
-the batrat and ratbat burrow	0	ratbat
-the batrat and ratbat burrow	1	batrat
+spooky forest	5	triffid
+spooky forest	4	bar
+spooky forest	3	spooky mummy
+spooky forest	2	wolfman
+spooky forest	1	warwelf
+spooky forest	0	spooky vampire
+the batrat and ratbat burrow	1	ratbat
+the batrat and ratbat burrow	0	batrat
 the beanbat chamber	0	beanbat
-the dark elbow of the woods	0	demoninja
+the dark elbow of the woods	2	demoninja
 the dark elbow of the woods	1	g imp
-the dark elbow of the woods	2	l imp
-the dark heart of the woods	0	fallen archfiend
+the dark elbow of the woods	0	l imp
+the dark heart of the woods	2	fallen archfiend
 the dark heart of the woods	1	g imp
-the dark heart of the woods	2	p imp
-the dark neck of the woods	0	hellion
+the dark heart of the woods	0	p imp
+the dark neck of the woods	2	hellion
 the dark neck of the woods	1	p imp
-the dark neck of the woods	2	w imp
-the old landfill	0	junksprite sharpener
+the dark neck of the woods	0	w imp
+the old landfill	2	junksprite sharpener
 the old landfill	1	junksprite melter
-the old landfill	2	junksprite bender
-the sleazy back alley	0	hung-over half-orc hobo
-the sleazy back alley	1	rushing bum
+the old landfill	0	junksprite bender
+the sleazy back alley	4	hung-over half-orc hobo
+the sleazy back alley	3	rushing bum
 the sleazy back alley	2	drunken half-orc hobo
-the sleazy back alley	3	completely different spider
-the sleazy back alley	4	big creepy spider
-whitey's grove	0	knight in white satin
-whitey's grove	1	white chocolate golem
-whitey's grove	2	white lion
-whitey's grove	3	whitesnake
+the sleazy back alley	1	completely different spider
+the sleazy back alley	0	big creepy spider
+whitey's grove	3	knight in white satin
+whitey's grove	2	white chocolate golem
+whitey's grove	1	white lion
+whitey's grove	0	whitesnake
