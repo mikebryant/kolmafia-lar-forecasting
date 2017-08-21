@@ -75,6 +75,7 @@ monster_analysis_skip_locations = [
     "8-bit realm", # Odd/even rejection
     "haunted pantry", # Odd/even rejection
     "the sleazy back alley", #Odd/even rejection
+    "haunted billiards room", #Several odd entries on the spreadsheet
 ]
 
 def guess_combat_roll(enc):
