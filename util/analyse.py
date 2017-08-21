@@ -158,32 +158,23 @@ for turn in range(1, MAX_TURN):
     mobrolls[turn] &= guess_combat_roll(enc)
 
 # For determining encounter correspondences
+correspondences = []
 for turn in range(1, MAX_TURN):
+    locs = sys.argv[1:]
+    if not locs:
+        continue
     try:
         #s = bylocturn["spooky forest"][turn]
-        locs = [
 
-            #"haunted billiards room",
-            #"haunted pantry",
-            #"hidden bowling alley",
-
-            #"the dark heart of the woods",
-            #"the dark neck of the woods",
-            #"the dark elbow of the woods",
-            "outskirts of cobb's knob",
-            #"haunted laundry room",
-            #"haunted kitchen",
-            "black forest",
-            #"spooky forest",
-            #"8-bit realm / odd",
-            #"8-bit realm / even",
-        ]
         encs = [bylocturn[loc][turn] for loc in locs]
         if not all([enc.combat for enc in encs]):
             continue
-        print(turn, [enc.name for enc in encs])
+        correspondences.append((turn, mobrolls[turn], [enc.name for enc in encs]))
     except KeyError:
         pass
+correspondences.sort(key=lambda x: (x[1].minimum + x[1].maximum)/2)
+for c in correspondences:
+    print c
 
 print "Errors:"
 for turn in range(1, MAX_TURN):
