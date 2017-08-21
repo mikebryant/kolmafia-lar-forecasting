@@ -1,6 +1,6 @@
 8-bit realm	100
-a-boo peak	100
 a barroom brawl	100
+a-boo peak	100
 barrrney's barrr	80
 black forest	95
 cobb's knob barracks	85
