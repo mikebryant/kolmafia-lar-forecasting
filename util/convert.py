@@ -50,6 +50,7 @@ forbidden_encounters = [
     "giant skeelton",
     "huge ghuol",
     "once more unto the junk",
+    "screambat",
 ]
 
 def convert(fobj):

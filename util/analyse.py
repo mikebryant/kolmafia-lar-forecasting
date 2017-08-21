@@ -68,6 +68,7 @@ for loc in source_encounter_lists_tmp:
 cnc_analysis_skip_locations = [
     "black forest", # Has all of the map superlikelies.
     "spooky forest", # aboreal superlikely
+    "the spooky forest",
 ]
 
 monster_analysis_skip_locations = [
@@ -126,7 +127,7 @@ with open("lar_encounter_data_v1.txt") as fobj:
 
 # Special processing - black forest / spooky forest
 for turn in range(1, MAX_TURN):
-    for loc in ["black forest", "spooky forest"]:
+    for loc in ["black forest"]:
         enc = bylocturn[loc].get(turn, None)
         if enc is None:
             continue
