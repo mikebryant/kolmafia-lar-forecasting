@@ -75,3 +75,7 @@ All rolls are presented as max/min pairs, as it still needs to be narrowed down,
 cd utils
 ./update
 ```
+
+## Known issues
+
+`the hidden park` - not sure on relative ordering of witch lawyer and janitor, as most of the time they get rejected
