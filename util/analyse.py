@@ -74,9 +74,15 @@ cnc_analysis_skip_locations = [
 
 monster_analysis_skip_locations = [
     "8-bit realm", # Odd/even rejection
-    "haunted pantry", # Odd/even rejection
+    "the haunted pantry", # Odd/even rejection
     "the sleazy back alley", #Odd/even rejection
-    "haunted billiards room", #Several odd entries on the spreadsheet
+    "the haunted billiards room", #Several odd entries on the spreadsheet
+    # All kinds of stuff with the various monsters being shoved in here
+    "the hidden park",
+    "the hidden apartment building",
+    "the hidden office building",
+    "the hidden bowling alley",
+    "the hidden hospital",
 ]
 
 def guess_combat_roll(enc):
@@ -117,12 +123,13 @@ with open("lar_encounter_data_v1.txt") as fobj:
         if loc not in cnc_analysis_skip_locations:
             if loc in combat_percentages:
                 cpc = combat_percentages[loc]
-                if combat:
-                    cncrolls[turn] &= Roll(1, cpc)
-                    #cncrolls[turn].maximum = min(cncrolls[turn].maximum, cpc)
-                else:
-                    cncrolls[turn] &= Roll(cpc + 1, 100)
-                    #cncrolls[turn].minimum = max(cncrolls[turn].minimum, cpc)
+                if cpc != 100:
+                    if combat:
+                        cncrolls[turn] &= Roll(1, cpc)
+                        #cncrolls[turn].maximum = min(cncrolls[turn].maximum, cpc)
+                    else:
+                        cncrolls[turn] &= Roll(cpc + 1, 100)
+                        #cncrolls[turn].minimum = max(cncrolls[turn].minimum, cpc)
 
         if loc not in monster_analysis_skip_locations:
             mobrolls[turn] &= guess_combat_roll(enc)

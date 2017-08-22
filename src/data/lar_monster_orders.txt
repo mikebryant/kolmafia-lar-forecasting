@@ -34,18 +34,6 @@ guano junction	2	skullbat
 guano junction	3	briefcase bat
 guano junction	4	perpendicular bat
 guano junction	5	vampire bat
-haunted billiards room	0	chalkdust wraith
-haunted billiards room	1	pooltergeist
-haunted kitchen	0	possessed silverware drawer
-haunted kitchen	1	demonic icebox
-haunted kitchen	2	paper towelgeist
-haunted kitchen	3	skullery maid
-haunted kitchen	4	zombie chef
-haunted pantry	0	possessed can of tomatoes
-haunted pantry	1	fiendish can of asparagus
-haunted pantry	2	undead elbow macaroni
-haunted pantry	3	flame-broiled meat blob
-haunted pantry	4	overdone flame-broiled meat blob
 outskirts of cobb's knob	0	sleeping knob goblin guard
 outskirts of cobb's knob	1	knob goblin assistant chef
 outskirts of cobb's knob	2	sub-assistant knob mad scientist
@@ -69,6 +57,42 @@ the dark heart of the woods	2	fallen archfiend
 the dark neck of the woods	0	w imp
 the dark neck of the woods	1	p imp
 the dark neck of the woods	2	hellion
+the haunted billiards room	0	chalkdust wraith
+the haunted billiards room	1	pooltergeist
+the haunted kitchen	0	possessed silverware drawer
+the haunted kitchen	1	demonic icebox
+the haunted kitchen	2	paper towelgeist
+the haunted kitchen	3	skullery maid
+the haunted kitchen	4	zombie chef
+the haunted pantry	0	possessed can of tomatoes
+the haunted pantry	1	fiendish can of asparagus
+the haunted pantry	2	undead elbow macaroni
+the haunted pantry	3	flame-broiled meat blob
+the haunted pantry	4	overdone flame-broiled meat blob
+the hidden apartment building	0	pygmy janitor
+the hidden apartment building	1	pygmy shaman
+the hidden apartment building	2	pygmy witch accountant
+the hidden apartment building	3	pygmy witch lawyer
+the hidden bowling alley	0	pygmy janitor
+the hidden bowling alley	1	drunk pygmy
+the hidden bowling alley	2	pygmy bowler
+the hidden bowling alley	3	pygmy orderlies
+the hidden hospital	0	pygmy janitor
+the hidden hospital	1	pygmy witch surgeon
+the hidden hospital	2	pygmy witch nurse
+the hidden hospital	3	pygmy orderlies
+the hidden office building	0	pygmy headhunter
+the hidden office building	1	pygmy janitor
+the hidden office building	2	pygmy witch accountant
+the hidden office building	3	pygmy witch lawyer
+the hidden park	0	pygmy assault squad
+the hidden park	1	pygmy blowgunner
+the hidden park	2	boaraffe
+the hidden park	3	pygmy janitor
+the hidden park	4	pygmy witch lawyer
+the hidden temple	0	stone temple pirate
+the hidden temple	1	baa-relief sheep
+the hidden temple	2	craven carven raven
 the old landfill	0	junksprite bender
 the old landfill	1	junksprite melter
 the old landfill	2	junksprite sharpener

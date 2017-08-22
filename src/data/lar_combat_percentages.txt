@@ -9,7 +9,6 @@ cobb's knob kitchens	100
 cobb's knob laboratory	100
 cobb's knob treasury	85
 guano junction	100
-haunted pantry	82
 outskirts of cobb's knob	80
 sonofa beach	10
 spooky forest	85
@@ -23,6 +22,15 @@ the defiled alcove	85
 the defiled cranny	85
 the defiled niche	85
 the defiled nook	85
+the haunted billiards room	75
+the haunted kitchen	100
+the haunted library	75
+the haunted pantry	82
+the hidden apartment building	100
+the hidden bowling alley	100
+the hidden hospital	100
+the hidden office building	100
+the hidden park	85
 the hidden temple	90
 the middle chamber	100
 the obligatory pirate's cove	59

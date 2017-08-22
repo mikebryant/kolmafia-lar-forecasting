@@ -132,16 +132,20 @@ boolean lar_encounter_known_monster(location loc, int turn) {
 
 string lar_get_known_info(location loc, int turn) {
   string cnc = "unknown";
+  string mob_name = "";
   if (lar_encounter_known_is_combat(loc, turn)) {
     if (lar_encounter_is_combat(loc, turn)) {
       cnc = "combat";
+      if (lar_encounter_known_monster(loc, turn)) {
+        mob_name = " -> " + lar_encounter_monster(loc, turn).to_string();
+      }
     } else {
       cnc = "noncombat";
     }
   }
 
   if (cnc != "unknown") {
-    return(loc + " -> " + cnc);
+    return(loc + " -> " + cnc + mob_name);
   }
 
   return "";

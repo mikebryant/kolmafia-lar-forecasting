@@ -47,6 +47,7 @@ def sanitise_monster(data):
 forbidden_encounters = [
     "a wheel -- how fortunate!",
     "conjoined zmobie",
+    'Dr. Henry "Dakota" Fanning, Ph.D., R.I.P.'.lower(),
     "giant skleleton",
     "giant skeelton",
     "huge ghuol",
