@@ -68,6 +68,7 @@ for loc in source_encounter_lists_tmp:
 
 cnc_analysis_skip_locations = [
     "black forest", # Has all of the map superlikelies.
+    "infernal rackets backstage", # Forced NCs
     "spooky forest", # aboreal superlikely
     "the spooky forest",
 ]
@@ -83,6 +84,7 @@ monster_analysis_skip_locations = [
     "the hidden office building",
     "the hidden bowling alley",
     "the hidden hospital",
+    "the batrat and ratbat burrow",
 ]
 
 def guess_combat_roll(enc):

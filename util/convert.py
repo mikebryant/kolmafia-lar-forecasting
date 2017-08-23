@@ -53,6 +53,7 @@ forbidden_encounters = [
     "huge ghuol",
     "once more unto the junk",
     "screambat",
+    "that's your cue",
 ]
 
 def convert(fobj):
