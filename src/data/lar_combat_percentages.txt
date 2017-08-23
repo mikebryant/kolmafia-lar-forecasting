@@ -9,6 +9,7 @@ cobb's knob kitchens	100
 cobb's knob laboratory	100
 cobb's knob treasury	85
 guano junction	100
+infernal rackets backstage	70
 outskirts of cobb's knob	80
 sonofa beach	10
 spooky forest	85
