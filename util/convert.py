@@ -1,11 +1,12 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*
 
 import csv
 import re
 import sys
 
 def sanitise_location(data, loc):
-    loc = loc.lower()
+    loc = loc.lower().strip()
     subtype = ""
     loc = re.sub(" \(delay[\s\w]*\)", "", loc)
 
@@ -42,10 +43,22 @@ def sanitise_monster(data):
     match = re.match(".*junksprite [\w ]+ (bender|melter|sharpener)", data)
     if match is not None:
         data = "junksprite " + match.groups()[0]
+    if data == "wardröb nightstand":
+        data = "wardr&ouml;b nightstand"
+    if data == "the cabinet of dr. limpieza":
+        data = "cabinet of dr. limpieza"
+    if data == "screwer":
+        data = "smut orc screwer"
+    if data == "nailer":
+        data = "smut orc nailer"
+    if data == "liti kitty":
+        data = "iiti kitty"
     return (data, "")
 
 forbidden_encounters = [
     "a wheel -- how fortunate!",
+    "a wheel  -- how  fortunate!",
+    "wheel",
     "conjoined zmobie",
     'Dr. Henry "Dakota" Fanning, Ph.D., R.I.P.'.lower(),
     "giant skleleton",
@@ -54,6 +67,7 @@ forbidden_encounters = [
     "once more unto the junk",
     "screambat",
     "that's your cue",
+    "exorcise sandwich",
 ]
 
 def convert(fobj):
@@ -72,7 +86,7 @@ def convert(fobj):
             for loc, enc in zip(locations, row[1:]):
                 enc = enc.replace("\n", " ")
                 enc = enc.lower()
-                if not enc or not loc:
+                if not enc or not loc[0]:
                     continue
                 if enc in forbidden_encounters:
                     continue

@@ -9,13 +9,16 @@ cobb's knob kitchens	100
 cobb's knob laboratory	100
 cobb's knob treasury	85
 guano junction	100
+hippy camp	85
 infernal rackets backstage	70
 outskirts of cobb's knob	80
 sonofa beach	10
-spooky forest	85
 the bat hole entrance	100
 the batrat and ratbat burrow	100
 the beanbat chamber	100
+the castle in the clouds in the sky (basement)	95
+the castle in the clouds in the sky (ground floor)	95
+the castle in the clouds in the sky (top floor)	95
 the dark elbow of the woods	90
 the dark heart of the woods	90
 the dark neck of the woods	90
@@ -23,6 +26,7 @@ the defiled alcove	85
 the defiled cranny	85
 the defiled niche	85
 the defiled nook	85
+the goatlet	100
 the haunted billiards room	75
 the haunted kitchen	100
 the haunted library	75
@@ -38,4 +42,5 @@ the obligatory pirate's cove	59
 the old landfill	100
 the penultimate fantasy airship	80
 the sleazy back alley	80
+the spooky forest	85
 whitey's grove	85

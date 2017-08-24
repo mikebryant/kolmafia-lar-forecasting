@@ -32,6 +32,7 @@ class Roll(object):
 cncrolls = defaultdict(lambda: Roll(1, 100))
 
 mobrolls = defaultdict(lambda: Roll(1, 100))
+ncrolls = defaultdict(lambda: Roll(1, 100))
 
 byturn = defaultdict(list)
 byloc = defaultdict(list)
@@ -47,7 +48,7 @@ with open("../src/data/lar_combat_percentages.txt") as fobj:
         loc, cpc = line.split("\t")
         combat_percentages[loc] = int(cpc)
 
-source_encounter_lists_tmp = defaultdict(dict)
+source_monster_lists_tmp = defaultdict(dict)
 
 with open("../src/data/lar_monster_orders.txt") as fobj:
     for line in fobj.readlines():
@@ -56,15 +57,34 @@ with open("../src/data/lar_monster_orders.txt") as fobj:
             continue
         loc, i, name = line.split("\t")
         i = int(i)
-        source_encounter_lists_tmp[loc][i] = name
+        source_monster_lists_tmp[loc][i] = name
 
-source_encounter_lists = {}
-for loc in source_encounter_lists_tmp:
-    source_encounter_lists[loc] = [None] * (max(source_encounter_lists_tmp[loc].keys()) + 1)
-    for k, v in source_encounter_lists_tmp[loc].items():
-        source_encounter_lists[loc][k] = v
-    if not all(source_encounter_lists[loc]):
-        print "Datafile lar_monster_orders.txt issue:", source_encounter_lists[loc]
+source_monster_lists = {}
+for loc in source_monster_lists_tmp:
+    source_monster_lists[loc] = [None] * (max(source_monster_lists_tmp[loc].keys()) + 1)
+    for k, v in source_monster_lists_tmp[loc].items():
+        source_monster_lists[loc][k] = v
+    if not all(source_monster_lists[loc]):
+        print "Datafile lar_monster_orders.txt issue:", source_monster_lists[loc]
+
+source_noncombat_lists_tmp = defaultdict(dict)
+
+with open("../src/data/lar_noncombat_orders.txt") as fobj:
+    for line in fobj.readlines():
+        line = line.strip()
+        if not line:
+            continue
+        loc, i, name = line.split("\t")
+        i = int(i)
+        source_noncombat_lists_tmp[loc][i] = name
+
+source_noncombat_lists = {}
+for loc in source_noncombat_lists_tmp:
+    source_noncombat_lists[loc] = [None] * (max(source_noncombat_lists_tmp[loc].keys()) + 1)
+    for k, v in source_noncombat_lists_tmp[loc].items():
+        source_noncombat_lists[loc][k] = v
+    if not all(source_noncombat_lists[loc]):
+        print "Datafile lar_noncombat_orders.txt issue:", source_noncombat_lists[loc]
 
 cnc_analysis_skip_locations = [
     "black forest", # Has all of the map superlikelies.
@@ -87,13 +107,29 @@ monster_analysis_skip_locations = [
     "the batrat and ratbat burrow",
 ]
 
+noncombat_analysis_skip_locations = [
+]
+
 def guess_combat_roll(enc):
     loc = enc.location
-    if not combat:
+    if not enc.combat:
         return Roll(1, 100)
-    if loc not in source_encounter_lists:
+    if loc not in source_monster_lists:
         return Roll(1, 100)
-    el = source_encounter_lists[loc]
+    el = source_monster_lists[loc]
+    if enc.name not in el:
+        print("%s/%s not in encounter list for %s!" % (enc.turn, enc.name, loc))
+        return Roll(1, 100)
+    i = el.index(enc.name)
+    return Roll((i * 100)//len(el) + 1, ((i+1) * 100)//len(el))
+
+def guess_noncombat_roll(enc):
+    loc = enc.location
+    if enc.combat:
+        return Roll(1, 100)
+    if loc not in source_noncombat_lists:
+        return Roll(1, 100)
+    el = source_noncombat_lists[loc]
     if enc.name not in el:
         print("%s/%s not in encounter list for %s!" % (enc.turn, enc.name, loc))
         return Roll(1, 100)
@@ -121,6 +157,10 @@ with open("lar_encounter_data_v1.txt") as fobj:
         byloc[loc].append(enc)
         bylocturn[loc][turn] = enc
 
+        if enc.name not in source_monster_lists.get(loc, []) + source_noncombat_lists.get(loc, []):
+            if loc not in ["8-bit realm / odd", "8-bit realm / even"]:
+                print("%s/%s not in encounter list for %s!" % (enc.turn, enc.name, loc))
+
         # Skip analysis of zones with delay, for now
         if loc not in cnc_analysis_skip_locations:
             if loc in combat_percentages:
@@ -135,6 +175,9 @@ with open("lar_encounter_data_v1.txt") as fobj:
 
         if loc not in monster_analysis_skip_locations:
             mobrolls[turn] &= guess_combat_roll(enc)
+
+        if loc not in noncombat_analysis_skip_locations:
+            ncrolls[turn] &= guess_noncombat_roll(enc)
 
 # Special processing - black forest / spooky forest
 for turn in range(1, MAX_TURN):
@@ -176,9 +219,10 @@ for turn in range(1, MAX_TURN):
         #s = bylocturn["spooky forest"][turn]
 
         encs = [bylocturn[loc][turn] for loc in locs]
-        if not all([enc.combat for enc in encs]):
-            continue
-        correspondences.append((turn, mobrolls[turn], [enc.name for enc in encs]))
+        if all([enc.combat for enc in encs]):
+            correspondences.append((turn, mobrolls[turn], [enc.name for enc in encs]))
+        if all([not enc.combat for enc in encs]):
+            correspondences.append((turn, ncrolls[turn], [enc.name for enc in encs]))
     except KeyError:
         pass
 correspondences.sort(key=lambda x: (x[1].minimum + x[1].maximum)/2)
@@ -199,6 +243,12 @@ for turn in range(1, MAX_TURN):
         for enc in byturn[turn]:
             if enc.combat:
                 print "\t", enc.location, enc.name, guess_combat_roll(enc)
+
+    if ncrolls[turn].minimum >= ncrolls[turn].maximum:
+        print "NC", turn, ncrolls[turn]
+        for enc in byturn[turn]:
+            if not enc.combat:
+                print "\t", enc.location, enc.name, guess_noncombat_roll(enc)
 print "End of Errors"
 
 with open("../src/data/lar_cnc_rolls.txt", "w") as fobj:
@@ -212,6 +262,15 @@ with open("../src/data/lar_cnc_rolls.txt", "w") as fobj:
 with open("../src/data/lar_monster_rolls.txt", "w") as fobj:
     for turn in range(1, MAX_TURN):
         roll = mobrolls[turn]
+        if roll.minimum >= roll.maximum:
+            # Don't record the data if it's broken
+            roll = Roll(1, 100)
+        # Turn, roll_number (so we can add the rerolls on rejections in future), min, max
+        fobj.write("%s\t%s\t%s\t%s\n" % (turn, 0, roll.minimum, roll.maximum))
+
+with open("../src/data/lar_noncombat_rolls.txt", "w") as fobj:
+    for turn in range(1, MAX_TURN):
+        roll = ncrolls[turn]
         if roll.minimum >= roll.maximum:
             # Don't record the data if it's broken
             roll = Roll(1, 100)
