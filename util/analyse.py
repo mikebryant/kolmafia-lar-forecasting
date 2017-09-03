@@ -91,6 +91,11 @@ cnc_analysis_skip_locations = [
     "infernal rackets backstage", # Forced NCs
     "spooky forest", # aboreal superlikely
     "the spooky forest",
+    "the haunted bathroom", # delay
+    "the haunted gallery", # delay
+    "the haunted ballroom", # delay
+    "the haunted bedroom", # delay
+    "the penultimate fantasy airship", # delay
 ]
 
 monster_analysis_skip_locations = [
@@ -105,6 +110,7 @@ monster_analysis_skip_locations = [
     "the hidden bowling alley",
     "the hidden hospital",
     "the batrat and ratbat burrow",
+    "the haunted library", # delay
 ]
 
 noncombat_analysis_skip_locations = [
